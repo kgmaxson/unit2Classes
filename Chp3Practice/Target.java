@@ -1,8 +1,5 @@
 import java.awt.Graphics2D;
-import java.awt.Rectangle;
 import java.awt.geom.Ellipse2D;
-import java.awt.geom.Line2D;
-import java.awt.geom.Point2D;
 import java.awt.Color;
 
 
@@ -24,7 +21,6 @@ public class Target
      */
     public Target(int x,int y)
     {
-        // initialise instance variables
         x = xLeft;
         y = yTop;
         
@@ -33,30 +29,25 @@ public class Target
 
     public void draw(Graphics2D g2)
     {
-        int x1=75;
-        int y1=100;
-        int r1=250;
-        int count=1;
+        int x1=35;
+        int y1=70;
+        int r1=310;
         
-        
-        for(int i = 1; i<7;i++) {
+        for(int i = 1; i<9;i++) {
             Ellipse2D.Double circlex = new Ellipse2D.Double(xLeft+x1,yTop+y1,r1,r1);
-            g2.draw(circlex);
-            if (count == 1 || count == 3 || count == 5)
+            
+            if (i%2==0)
                 {
-                g2.fill(circlex);
-                g2.setColor(Color.ORANGE);
+                g2.setColor(Color.YELLOW);
                 
            }else{
-                g2.fill(circlex);
-                g2.setColor(Color.CYAN);
+                g2.setColor(Color.BLUE);
             }
-            count+=1;
-            x1+=25;
-            y1+=25;
-            r1-=50;
+            g2.draw(circlex);
+            g2.fill(circlex);
+            x1+=20;
+            y1+=20;
+            r1-=40;
         }
-
-
     }
 }
